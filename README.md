@@ -1,7 +1,6 @@
 # Reed-Solomon-error-correction
 Reed–Solomon error correction in java, providing RS(255,233) encode and decode method.
 
-----------
 #Usage
 encode the string before net transmission or local storage:
   
