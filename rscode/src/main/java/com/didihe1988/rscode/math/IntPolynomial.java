@@ -1,4 +1,4 @@
-package com.didihe1988.hadoop.rscode;
+package com.didihe1988.rscode.math;
 
 /**
  * Created by didihe1988 on 15-4-24.
@@ -9,7 +9,7 @@ public class IntPolynomial {
 
 
     //8x^2+3x^3+9x^5  --> [0,0,8,3,0,9]
-    IntPolynomial(int[] coefficients){
+    public IntPolynomial(int[] coefficients){
         this.coefficients=coefficients;
     }
 

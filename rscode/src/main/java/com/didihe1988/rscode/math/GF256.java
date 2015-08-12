@@ -1,4 +1,4 @@
-package com.didihe1988.hadoop.rscode;
+package com.didihe1988.rscode.math;
 
 /**
  * Created by didihe1988 on 15-4-22.
@@ -52,7 +52,7 @@ public class GF256{
 
     private int value;
 
-    GF256(int value){
+    public GF256(int value){
         this.value=value;
     }
 
