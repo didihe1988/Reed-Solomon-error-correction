@@ -37,12 +37,12 @@ public class RSEncoder extends RSCode{
     
     /**
      * 对一个编码单元(大小为成员变量k)执行具体的编码操作
-     * @param message 信息字符串
+     * @param unit 信息字符串
      * @return 码字多项式
      */
-    private Polynomial doEncode(String message){
+    private Polynomial doEncode(String unit){
         //生成信息多项式m(x)
-        Polynomial m=new Polynomial(message);
+        Polynomial m=new Polynomial(unit);
         //x^(2t)
         Polynomial twoT=new Polynomial(this.two_t);
         twoT.coefficients[twoT.length()-1]=ONE;
