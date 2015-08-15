@@ -11,6 +11,32 @@ encode the string before net transmission or local storage:
 decode while receiving from network or reading from the disk
 
     String result=decoder.decode(receive);
+#Example
+
+     public static void simulateTransmission(String message){
+    	//encode
+    	System.out.println("String ready to translate：");
+    	System.out.println(message);
+    	System.out.println("--------------------------");
+    	RSEncoder encoder=new RSEncoder();
+    	byte[] bytes=encoder.encode(message);
+        RSDecoder decoder=new RSDecoder();
+        //modify several bytes to simulate errors in transmission
+        byte[] receive=bytes;
+        receive[0]='a';
+        receive[300]='a';
+        receive[301]='b';
+        //decode
+        String result=decoder.decode(receive);
+        System.out.println("--------------------------");
+        System.out.println("String after error correction： ");
+        System.out.println(result);
+        System.out.println("--------------------------");
+    	System.out.println("Is result the same as message？： "+message.equals(result));
+    }
+    
+    ![](https://github.com/didihe1988/Reed-Solomon-error-correction/raw/master/rscode/screenshot/demo.png)
+
 #Document
 
  - **Class RSEncoder**
@@ -38,3 +64,11 @@ Procedure:
 (3)*chienSearch(Polynomial sigma)*:Input error-locator polynomial--sigma,return the roots of sigma.
 (4)*forney()*:Input error-value polynomial--omega and the corresponding error location,return the coefficient of error polynomial.
 (5)generate error polynomial,codeword = receive - error polynomial.
+
+
+
+
+
+
+
+

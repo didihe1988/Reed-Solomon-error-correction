@@ -50,7 +50,7 @@ public class RSDecoder extends RSCode {
 		Polynomial receivePoly = new Polynomial(receive);
 		// 计算伴随式
 		Polynomial syndromes = calSyndromes(receivePoly);
-		System.out.println("伴随式: "+syndromes);
+		System.out.println("syndromes: "+syndromes);
 		// BM算法
 		Polynomial[] bmPolys = calBerlekampMassey(syndromes);
 		Polynomial sigma = bmPolys[0];
@@ -70,7 +70,7 @@ public class RSDecoder extends RSCode {
 			}
 		}
 		Polynomial errorPoly = new Polynomial(errors);
-		System.out.println("纠错多项式: "+errorPoly);
+		System.out.println("error polynomial: "+errorPoly);
 		Polynomial codeword = receivePoly.sub(errorPoly);
 		return codeword.toValue(223);
 	}
@@ -161,8 +161,8 @@ public class RSDecoder extends RSCode {
 				JSubD[j + 2] = j + 1 - D[j + 2];
 			}
 		}
-		System.out.println("错误位置多项式sigma: "+sigmas[this.two_t + 1]);
-		System.out.println("错误值多项式omega: "+omegas[this.two_t + 1]);
+		System.out.println("error-lacator polynomial--sigma: "+sigmas[this.two_t + 1]);
+		System.out.println("error-value polynomial--omega: "+omegas[this.two_t + 1]);
 		Polynomial[] results = new Polynomial[2];
 		results[0] = sigmas[this.two_t + 1];
 		results[1] = omegas[this.two_t + 1];

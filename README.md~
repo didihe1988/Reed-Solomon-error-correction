@@ -11,6 +11,7 @@ encode the string before net transmission or local storage:
 decode while receiving from network or reading from the disk
 
     String result=decoder.decode(receive);
+
 #Document
 
  - **Class RSEncoder**

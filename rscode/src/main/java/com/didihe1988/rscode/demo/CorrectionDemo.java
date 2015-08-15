@@ -7,23 +7,31 @@ import com.didihe1988.rscode.coder.RSEncoder;
  * Created by didihe1988 on 15-4-22.
  */
 public class CorrectionDemo {
-	
-	private static final String string="Dear Tom,I received your letter yesterday.\n I'm very glad to know that you will come to ChengDu.I'm just going to have a one-month holiday after the exam. We can spend our holidays together. We can swim and climb the hills. I am looking forward to your reply.";
 
     public static void main(String[] args) {
-    	//编码
-    	System.out.println("准备传输的字符串： "+string);
+    	String message="Dear Tom,I received your letter yesterday.\n I'm very glad to know that you will come to ChengDu.I'm just going to have a one-month holiday after the exam. We can spend our holidays together. We can swim and climb the hills. I am looking forward to your reply.";
+    	simulateTransmission(message);
+    }
+    
+    public static void simulateTransmission(String message){
+    	//encode
+    	System.out.println("String ready to translate：");
+    	System.out.println(message);
+    	System.out.println("--------------------------");
     	RSEncoder encoder=new RSEncoder();
-    	byte[] bytes=encoder.encode(string);
+    	byte[] bytes=encoder.encode(message);
         RSDecoder decoder=new RSDecoder();
-        //修改receive中两个字节的内容，来模拟网络传输或是磁盘存储过程中错误的发生
+        //modify several bytes to simulate errors in transmission
         byte[] receive=bytes;
         receive[0]='a';
         receive[300]='a';
         receive[301]='b';
-        //解码
+        //decode
         String result=decoder.decode(receive);
-        System.out.println("纠错后的字符串： "+result);
-    	System.out.println("两个字符串是否相同： "+string.equals(result));
+        System.out.println("--------------------------");
+        System.out.println("String after error correction： ");
+        System.out.println(result);
+        System.out.println("--------------------------");
+    	System.out.println("Is result the same as message？： "+message.equals(result));
     }
 }
