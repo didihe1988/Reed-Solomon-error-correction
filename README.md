@@ -35,7 +35,7 @@ decode while receiving from network or reading from the disk
     	System.out.println("Is result the same as message？： "+message.equals(result));
     }
     
-    ![](https://github.com/didihe1988/Reed-Solomon-error-correction/raw/master/rscode/screenshot/demo.png)
+ ![](https://github.com/didihe1988/Reed-Solomon-error-correction/raw/master/rscode/screenshot/demo.png)
 
 #Document
 
